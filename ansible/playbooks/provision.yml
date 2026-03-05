@@ -23,9 +23,5 @@
         regexp: ".*download\\.docker\\.com/linux/ubuntu.*signed-by=/etc/apt/keyrings/docker\\.gpg.*"
         state: absent
   roles:
-    - role: common
-      tags:
-        - common
-    - role: docker
-      tags:
-        - docker
+    - common
+    - docker
