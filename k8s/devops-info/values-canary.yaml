@@ -1,0 +1,16 @@
+<<<<<<< Updated upstream
+workload:
+  type: rollout
+=======
+statefulset:
+  enabled: false
+>>>>>>> Stashed changes
+
+rollout:
+  strategy: canary
+
+replicaCount: 3
+
+service:
+  type: NodePort
+  nodePort: 30080
