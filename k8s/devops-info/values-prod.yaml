@@ -1,0 +1,37 @@
+replicaCount: 4
+
+workload:
+  type: statefulset
+
+image:
+  tag: "v1.0.0"
+
+appConfig:
+  environment: "prod"
+
+configMaps:
+  env:
+    data:
+      APP_ENV: "prod"
+      LOG_LEVEL: "INFO"
+      FEATURE_VISITS: "true"
+
+service:
+  type: LoadBalancer
+  nodePort: null
+
+resources:
+  requests:
+    cpu: "200m"
+    memory: "256Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+
+livenessProbe:
+  initialDelaySeconds: 30
+  periodSeconds: 5
+
+readinessProbe:
+  initialDelaySeconds: 10
+  periodSeconds: 3
